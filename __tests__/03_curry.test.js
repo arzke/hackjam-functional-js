@@ -22,4 +22,10 @@ describe('Curry', () => {
     const addLotsOfThings = curry(addNumbers, ...numbers);
     expect(addLotsOfThings(32)).toEqual(numbers.reduce((acc, next) => acc + next, 0) + 32);
   });
+
+  test('It should return us a function that takes an infinity of parameters', () => {
+    const add = (...numbers) => numbers.reduce((acc, next) => acc + next, 0);
+    const add2and5 = curry(add, 2, 5);
+    expect(add2and5(1, 3, 5)).toEqual(2 + 5 + 5+ 3 + 1);
+  });
 });
