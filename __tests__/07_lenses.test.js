@@ -163,10 +163,6 @@ describe('Lenses', () => {
         expect(mockUser).toEqual(copyMockUser);
       });
     });
-
-    describe('Over utilitary', () => {
-      test('It should  ')
-    });
   });
 
   describe('Bonus: lensPath', () => {
@@ -204,12 +200,24 @@ describe('Lenses', () => {
   });
 
   describe('bonus: lensIndex', () => {
+
+    const first = lensIndex(0);
+    const mockValues = [0, 1, 2];
+
     test('It should be a function', () => {
       shouldBeAFunction(lensIndex);
     });
 
     test('It should take one parameter', () => {
       expect(lensIndex.length).toEqual(1);
+    });
+
+    test('It should allow us to acces values at index x', () => {
+      expect(first.get(mockValues)).toEqual(0);
+    });
+
+    test('It should allow us to set values at index x', () => {
+      expect(first.set(42, mockValues)).toEqual([42, 1, 2]);
     });
   });
 });
