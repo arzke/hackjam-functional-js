@@ -273,3 +273,13 @@ const first = lensIndex(0);
 first.get([1, 3, 2]); // 1
 first.set(42, [1, 3, 3]); // [42, 3, 3]
 ```
+
+### 08. Range
+The range gives you back a range of numbers, as simple as that.
+
+Example usage:
+```JavaScript
+range(2); // [0, 1]
+range(2, 5); // [2, 3, 4]
+range(2, -3); // [2, 1, 0, -1, -2]
+```
